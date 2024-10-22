@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<filezilla-server-exported xmlns:fz="https://filezilla-project.org" xmlns="https://filezilla-project.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" fz:product_flavour="standard" fz:product_version="1.9.2">
+	<protocols_options>
+		<!--Autobanner options-->
+		<autobanner>
+			<!--The duration, in milliseconds, of the IP ban.-->
+			<ban_duration>300000</ban_duration>
+			<!--The duration, in milliseconds, during which the number of failed login attempts is monitored.-->
+			<login_failure_time_window>0</login_failure_time_window>
+			<!--The number of login attempts that are allowed to fail, within the time window specified by the parameter [login_failures_time_window]. The value 0 disables this mechanism.-->
+			<login_failure_time_window>0</login_failure_time_window>
+		</autobanner>
+		<!--Performance options.-->
+		<performance>
+			<!--Number of threads to distribute sessions to.-->
+			<number_of_session_threads>0</number_of_session_threads>
+			<!--Size of receving data socket buffer. Numbers < 0 mean use system defaults. Defaults to -1.-->
+			<receive_buffer_size>-1</receive_buffer_size>
+			<!--Size of sending data socket buffer. Numbers < 0 mean use system defaults. Defaults to -1.-->
+			<send_buffer_size>-1</send_buffer_size>
+		</performance>
+		<!--Timeout options.-->
+		<timeouts>
+			<!--Login timeout (fz::duration)-->
+			<login_timeout>60000</login_timeout>
+			<!--Activity timeout (fz::duration).-->
+			<activity_timeout>3600000</activity_timeout>
+		</timeouts>
+	</protocols_options>
+	<ftp_options>
+		<!--List of addresses and ports the FTP server will listen on.-->
+		<listener>
+			<address>192.168.1.66</address>
+			<port>21</port>
+			<tls_mode>2</tls_mode>
+		</listener>
+		<!--Session-related options.-->
+		<session>
+			<!--PASV settings-->
+			<pasv>
+				<!--IPV4 IP or name host that overrides the local address when PASV is used. Leave empty to not perform the override-->
+				<host_override></host_override>
+				<!--If set to true, then the host is not overriden for local connections.-->
+				<do_not_override_host_if_peer_is_local>true</do_not_override_host_if_peer_is_local>
+				<!--Port range to be used for PASV connections-->
+			</pasv>
+			<!--TLS certificate data.-->
+			<tls min_protocol_version="2" index="6">
+				<!--The private key-->
+				<key type="blob" base64="false">
+					<!--The data of a key or certificates chain in PEM or DER format-->-----BEGIN EC PRIVATE KEY-----
+MHgCAQEEIQC/k2WPqsoeiPxw1nzxD9r33/xoJ6UQGn2brEkItvV/o6AKBggqhkjO
+PQMBB6FEA0IABCwa4lXErHvq5OD4zyPZGvCCDDGwYmrQafuUs16ggxXtfNbUXn5H
+cAZL4l2STaLQt1p1CAEHtrLSyPzR671J0Z8=
+-----END EC PRIVATE KEY-----</key>
+				<!--The certificates chain-->
+				<certs type="blob" base64="false">
+					<!--The data of a key or certificates chain in PEM or DER format-->-----BEGIN CERTIFICATE-----
+MIIBhzCCAS6gAwIBAgIUOT2+AhqA2iQbW13SQVjLGWPpts4wCgYIKoZIzj0EAwIw
+MzExMC8GA1UEAxMoZmlsZXppbGxhLXNlcnZlciBzZWxmIHNpZ25lZCBjZXJ0aWZp
+Y2F0ZTAeFw0yNDEwMTQxMTI0MDhaFw0yNTEwMTUxMTI5MDhaMDMxMTAvBgNVBAMT
+KGZpbGV6aWxsYS1zZXJ2ZXIgc2VsZiBzaWduZWQgY2VydGlmaWNhdGUwWTATBgcq
+hkjOPQIBBggqhkjOPQMBBwNCAAQsGuJVxKx76uTg+M8j2RrwggwxsGJq0Gn7lLNe
+oIMV7XzW1F5+R3AGS+Jdkk2i0LdadQgBB7ay0sj80eu9SdGfoyAwHjAOBgNVHQ8B
+Af8EBAMCBaAwDAYDVR0TAQH/BAIwADAKBggqhkjOPQQDAgNHADBEAiALwChUigON
+gcWHBaC3wY8n9mWPLBwhHwa/EOhuoNiCFgIgN39mTjXH6sUAnJiazjTokuG3bBQ5
+av4mLftcfIWbxYs=
+-----END CERTIFICATE-----</certs>
+				<!--Password to decrypt/access the private key-->
+				<key_password></key_password>
+				<!--The source of this key/certs pair-->
+				<source index="1" />
+			</tls>
+		</session>
+		<!--Additional welcome message.-->
+		<welcome_message has_version="true">hola</welcome_message>
+	</ftp_options>
+	<webui_options>
+		<!--Expiration timeout for the access token-->
+		<access_timeout>300000</access_timeout>
+		<!--Expiration timeout for the refresh token-->
+		<refresh_timeout>1296000000</refresh_timeout>
+		<!--HTTP keepalive timeout-->
+		<http_keepalive_timeout>15000</http_keepalive_timeout>
+		<!--HTTP activity timeout-->
+		<http_activity_timeout>30000</http_activity_timeout>
+		<!--List of addresses and ports the FTP server will listen on.-->
+		<!--TLS certificate cata-->
+		<tls min_protocol_version="2" index="0" />
+	</webui_options>
+	<disallowed_ips></disallowed_ips>
+	<allowed_ips></allowed_ips>
+	<groups>
+		<group name="admins">
+			<rate_limits inbound="unlimited" outbound="unlimited" session_inbound="unlimited" session_outbound="unlimited" />
+			<allowed_ips></allowed_ips>
+			<disallowed_ips></disallowed_ips>
+			<session_open_limits files="unlimited" directories="unlimited" />
+			<session_count_limit>unlimited</session_count_limit>
+			<description></description>
+		</group>
+		<group name="usuaris">
+			<mount_point tvfs_path="/comu" access="0" native_path="" new_native_path="c:\users\marcmas\documents\FTP\Carpeta Comuna" recursive="1" flags="0" />
+			<rate_limits inbound="unlimited" outbound="unlimited" session_inbound="unlimited" session_outbound="unlimited" />
+			<allowed_ips></allowed_ips>
+			<disallowed_ips></disallowed_ips>
+			<session_open_limits files="unlimited" directories="unlimited" />
+			<session_count_limit>unlimited</session_count_limit>
+			<description></description>
+		</group>
+		<group name="colaborador">
+			<mount_point tvfs_path="/Colaboradors" access="1" native_path="" new_native_path="c:\users\marcmas\documents\FTP\Carpeta Comuna" recursive="2" flags="1" />
+			<rate_limits inbound="unlimited" outbound="unlimited" session_inbound="unlimited" session_outbound="unlimited" />
+			<allowed_ips></allowed_ips>
+			<disallowed_ips></disallowed_ips>
+			<session_open_limits files="unlimited" directories="unlimited" />
+			<session_count_limit>unlimited</session_count_limit>
+			<description></description>
+		</group>
+	</groups>
+	<users>
+		<default_impersonator index="0" enabled="false">
+			<name></name>
+			<password></password>
+		</default_impersonator>
+		<user name="&lt;system user>" enabled="false">
+			<mount_point tvfs_path="/" access="1" native_path="" new_native_path="%&lt;home>" recursive="2" flags="0" />
+			<rate_limits inbound="unlimited" outbound="unlimited" session_inbound="unlimited" session_outbound="unlimited" />
+			<allowed_ips></allowed_ips>
+			<disallowed_ips></disallowed_ips>
+			<session_open_limits files="unlimited" directories="unlimited" />
+			<session_count_limit>unlimited</session_count_limit>
+			<description>This user can impersonate any system user.</description>
+			<impersonation login_only="false" />
+			<methods>password</methods>
+		</user>
+		<user name="admin" enabled="true">
+			<mount_point tvfs_path="/" access="1" native_path="" new_native_path="C:\" recursive="2" flags="0" />
+			<mount_point tvfs_path="/FTP" access="1" native_path="" new_native_path="C:\users\marcmas\documents\FTP" recursive="2" flags="0" />
+			<rate_limits inbound="unlimited" outbound="unlimited" session_inbound="unlimited" session_outbound="unlimited" />
+			<allowed_ips></allowed_ips>
+			<disallowed_ips></disallowed_ips>
+			<session_open_limits files="unlimited" directories="unlimited" />
+			<session_count_limit>unlimited</session_count_limit>
+			<description></description>
+			<group>admins</group>
+			<group>colaborador</group>
+			<group>usuaris</group>
+			<password index="1">
+				<hash>HDMCKldB36lgDtq+ILjvS2EyA6+bPZ/BxxxR+wabc6g</hash>
+				<salt>hxAO5EMa46kKfspFaAab55eFSCZOQsUznEP7SKJQ6Bo</salt>
+				<iterations>100000</iterations>
+			</password>
+			<methods>password</methods>
+		</user>
+		<user name="anonim" enabled="true">
+			<mount_point tvfs_path="/" access="1" native_path="" new_native_path="c:\users\marcmas\documents\FTP\Carpeta Comuna" recursive="2" flags="0" />
+			<rate_limits inbound="unlimited" outbound="unlimited" session_inbound="unlimited" session_outbound="unlimited" />
+			<allowed_ips></allowed_ips>
+			<disallowed_ips></disallowed_ips>
+			<session_open_limits files="unlimited" directories="unlimited" />
+			<session_count_limit>unlimited</session_count_limit>
+			<description></description>
+			<password index="1">
+				<hash>2kRTNibKFCBhd0sWQtbL8BuFpRhCZoUhMDjpTFOwftU</hash>
+				<salt>nlk55ntlxfjuGONZnJTMm0a6TJCd5nWJwIO5WLxCSmY</salt>
+				<iterations>100000</iterations>
+			</password>
+			<methods>password</methods>
+		</user>
+		<user name="col1" enabled="true">
+			<mount_point tvfs_path="/COL1" access="1" native_path="" new_native_path="c:\users\marcmas\documents\FTP\Carpeta COL1" recursive="2" flags="1" />
+			<rate_limits inbound="unlimited" outbound="unlimited" session_inbound="unlimited" session_outbound="unlimited" />
+			<allowed_ips></allowed_ips>
+			<disallowed_ips></disallowed_ips>
+			<session_open_limits files="1" directories="1" />
+			<session_count_limit>unlimited</session_count_limit>
+			<description></description>
+			<group>colaborador</group>
+			<password index="1">
+				<hash>JfngOwbCTCORCSc6/UwndXUJL7LCkk17f9/j/xw/ht0</hash>
+				<salt>BtBeDWyWznCgIZjCgcY/dWWaXYLJfjTqn2ywUcGPvSg</salt>
+				<iterations>100000</iterations>
+			</password>
+			<methods>password</methods>
+		</user>
+		<user name="col2" enabled="true">
+			<mount_point tvfs_path="/COL2" access="1" native_path="" new_native_path="c:\users\marcmas\documents\FTP\Carpeta COL2" recursive="2" flags="1" />
+			<rate_limits inbound="unlimited" outbound="unlimited" session_inbound="unlimited" session_outbound="unlimited" />
+			<allowed_ips></allowed_ips>
+			<disallowed_ips></disallowed_ips>
+			<session_open_limits files="unlimited" directories="unlimited" />
+			<session_count_limit>unlimited</session_count_limit>
+			<description></description>
+			<group>colaborador</group>
+			<password index="1">
+				<hash>fK41I9RNPp9zO0JBa2o4XVs5yt9V6/DKnVEPFHd4Ye8</hash>
+				<salt>f73eAvWSQaCyV18TUw/Xqngbwm6BBCiNYnwnJl5DMhg</salt>
+				<iterations>100000</iterations>
+			</password>
+			<methods>password</methods>
+		</user>
+		<user name="marcmas" enabled="true">
+			<mount_point tvfs_path="/" access="1" native_path="" new_native_path="c:\" recursive="2" flags="0" />
+			<rate_limits inbound="unlimited" outbound="unlimited" session_inbound="unlimited" session_outbound="unlimited" />
+			<allowed_ips></allowed_ips>
+			<disallowed_ips></disallowed_ips>
+			<session_open_limits files="unlimited" directories="unlimited" />
+			<session_count_limit>unlimited</session_count_limit>
+			<description></description>
+			<group>admins</group>
+			<password index="1">
+				<hash>DaHhDGs6JwMnJ3Q055kDUDPlAUSUdnZGfiBch63GAFk</hash>
+				<salt>mxY6Jy/hVnUN9OoJIJI6HSfDn764TdZkyrGWHOYJxuE</salt>
+				<iterations>100000</iterations>
+			</password>
+			<methods>password</methods>
+		</user>
+		<user name="peremunar" enabled="true">
+			<rate_limits inbound="unlimited" outbound="unlimited" session_inbound="unlimited" session_outbound="unlimited" />
+			<allowed_ips></allowed_ips>
+			<disallowed_ips></disallowed_ips>
+			<session_open_limits files="unlimited" directories="unlimited" />
+			<session_count_limit>unlimited</session_count_limit>
+			<description></description>
+			<group>usuaris</group>
+			<password index="1">
+				<hash>4G0uJW+OifrRS4jw+I636Tcbc7LKGPcOrrVtbScg3J0</hash>
+				<salt>xPIRXRqKDPAbs3koCKiT7vxGWHFdpMDjKYL+zTGAaL0</salt>
+				<iterations>100000</iterations>
+			</password>
+			<methods>password</methods>
+		</user>
+		<user name="usuari" enabled="true">
+			<rate_limits inbound="unlimited" outbound="unlimited" session_inbound="unlimited" session_outbound="unlimited" />
+			<allowed_ips></allowed_ips>
+			<disallowed_ips></disallowed_ips>
+			<session_open_limits files="unlimited" directories="unlimited" />
+			<session_count_limit>unlimited</session_count_limit>
+			<description></description>
+			<group>usuaris</group>
+			<password index="1">
+				<hash>bfPlBRKP777QtQM97tfFiuizSDDKpPjp5aaau1xp4WA</hash>
+				<salt>auO9W2xks8bySZlybeykQp65eBPBzNPXExbHJNrAYc4</salt>
+				<iterations>100000</iterations>
+			</password>
+			<methods>password</methods>
+		</user>
+		<user name="Visualitzador" enabled="true">
+			<mount_point tvfs_path="/" access="0" native_path="" new_native_path="C:\users\marcmas\documents\FTP" recursive="1" flags="0" />
+			<rate_limits inbound="unlimited" outbound="unlimited" session_inbound="unlimited" session_outbound="unlimited" />
+			<allowed_ips></allowed_ips>
+			<disallowed_ips></disallowed_ips>
+			<session_open_limits files="unlimited" directories="unlimited" />
+			<session_count_limit>unlimited</session_count_limit>
+			<description></description>
+			<group>admins</group>
+			<password index="1">
+				<hash>5XBtK8cYWVt8TuGfDocviM8DJTPir3zBtCOMaz4YCEI</hash>
+				<salt>oGO7XiuoFWDDAwmWvi4Rn2a1gvnM7ClFm4nJN8GcTvE</salt>
+				<iterations>100000</iterations>
+			</password>
+			<methods>password</methods>
+		</user>
+	</users>
+	<admin_options>
+		<local_port>21</local_port>
+		<enable_local_ipv6>true</enable_local_ipv6>
+		<listener>
+			<address>127.0.0.1</address>
+			<port>21</port>
+			<use_tls>true</use_tls>
+		</listener>
+		<listener>
+			<address>192.168.1.66</address>
+			<port>140</port>
+			<use_tls>true</use_tls>
+		</listener>
+		<password index="1">
+			<hash>5fF+kPuSgxAzJd3Ewe0M0IIzvmW1vtM7a+DfYoPqawE</hash>
+			<salt>cmIovESbemNMtk8EJDCox+8uqMlV1QSk9wWXpBCxmWw</salt>
+			<iterations>100000</iterations>
+		</password>
+		<tls min_protocol_version="3" index="6">
+			<!--The private key-->
+			<key type="blob" base64="false">
+				<!--The data of a key or certificates chain in PEM or DER format-->-----BEGIN EC PRIVATE KEY-----
+MHcCAQEEIAPUch69RPAOFFRya85cYs5CrMqCrXj6fZboJ/J3rQzloAoGCCqGSM49
+AwEHoUQDQgAEcNS6Dm0qTw9hPb1k7MUoecPRSP5GLyep37olsiDhDJKtxvzUyA53
+UzaRwY4j8NG4qDyLwIcD/NarhMNOrlZxuw==
+-----END EC PRIVATE KEY-----</key>
+			<!--The certificates chain-->
+			<certs type="blob" base64="false">
+				<!--The data of a key or certificates chain in PEM or DER format-->-----BEGIN CERTIFICATE-----
+MIIBiDCCAS6gAwIBAgIUJKDdTSDFztqoS35uxOGkHsGXxFMwCgYIKoZIzj0EAwIw
+MzExMC8GA1UEAxMoZmlsZXppbGxhLXNlcnZlciBzZWxmIHNpZ25lZCBjZXJ0aWZp
+Y2F0ZTAeFw0yNDEwMTQxMTI0MDhaFw0yNTEwMTUxMTI5MDhaMDMxMTAvBgNVBAMT
+KGZpbGV6aWxsYS1zZXJ2ZXIgc2VsZiBzaWduZWQgY2VydGlmaWNhdGUwWTATBgcq
+hkjOPQIBBggqhkjOPQMBBwNCAARw1LoObSpPD2E9vWTsxSh5w9FI/kYvJ6nfuiWy
+IOEMkq3G/NTIDndTNpHBjiPw0bioPIvAhwP81quEw06uVnG7oyAwHjAOBgNVHQ8B
+Af8EBAMCBaAwDAYDVR0TAQH/BAIwADAKBggqhkjOPQQDAgNIADBFAiB7BB+5OyX6
+YK8yLJhwEfSroUxSgOpXDTDKR1J4nd+COAIhAIeDw3Nlg3xb8JNQf0mtsHYn5iMV
+GdH68Gt+pqW9Ck6/
+-----END CERTIFICATE-----</certs>
+			<!--Password to decrypt/access the private key-->
+			<key_password></key_password>
+			<!--The source of this key/certs pair-->
+			<source index="1" />
+		</tls>
+	</admin_options>
+	<logger_options>
+		<!--The name of the log file. If empty, the log goes to stderr.-->
+		<name>C:\Program Files\FileZilla Server\Logs\filezilla-server.log</name>
+		<!--The maximum number of files to be used for the log rotation. Default is 0, meaning no rotation happens.-->
+		<max_amount_of_rotated_files>5</max_amount_of_rotated_files>
+		<!--The maximum size each log file can reach before being closed and a new one being opened. Only meaningful if max_amount_of_rotated_files > 0.-->
+		<max_file_size>9223372036854775807</max_file_size>
+		<!--Which types of logs must be enabled. Defaults to error|status|reply|command . See <libfilezilla/logger.hpp> for the values of the various types.-->
+		<enabled_types>4294967551</enabled_types>
+		<!--Criteria used to rotate files. Currently: size-based (0) or daily rotation (1).-->
+		<rotation_type>0</rotation_type>
+		<!--Include headers for each line of logging (date&time and possibly others). Set it to false if you have your own way of tagging log lines. Default is true.-->
+		<include_headers>true</include_headers>
+		<!--Append the date of the log file to its name when rotating, before any suffix the name might have.-->
+		<date_in_name>false</date_in_name>
+	</logger_options>
+	<acme_options>
+		<account_id></account_id>
+		<how_to_serve_challenges index="0" />
+	</acme_options>
+	<acme_extra_account_info>
+		<directory></directory>
+		<contacts />
+		<created_at></created_at>
+		<jwk>
+			<value0></value0>
+			<value1></value1>
+		</jwk>
+	</acme_extra_account_info>
+	<pkcs11_options>
+		<!--The list of PKCS#11 providers to be loaded. If empty, the default system config will be used.-->
+	</pkcs11_options>
+	<updates_options>
+		<allowed_type>0</allowed_type>
+		<frequency>604800000</frequency>
+		<callback_path></callback_path>
+	</updates_options>
+</filezilla-server-exported>
